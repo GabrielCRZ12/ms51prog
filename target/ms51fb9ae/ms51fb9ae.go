@@ -221,8 +221,8 @@ func (c *MS51FB9AEConfig) GetLDROMSize() uint {
 
 var MS51FB9AE = &target.Definition{
 	Name:        "MS51FB9AE",
-	Family:      protocol.ChipFamilyMS51FB9AE,
-	DeviceID:    protocol.DeviceMS51FB9AE,
+	Family:      protocol.ChipFamilyN76E003,
+	DeviceID:    protocol.DeviceN76E003,
 	ProgMemSize: 12 * 1024,
 	LDROMOffset: 0x3800,
 	Config: target.ConfigSpace{

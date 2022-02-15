@@ -126,7 +126,6 @@ const (
 	// M2351 family (taken from Nuvoton's OpenOCD patch)
 	ChipFamilyM2351 = 0x321
 	ChipFamilyN76E003 = 0x800
-	ChipFamilyMS51FB9AE = 0x802
 )
 
 func (f ChipFamily) String() string {
@@ -134,8 +133,6 @@ func (f ChipFamily) String() string {
 	case ChipFamilyM2351:
 		return "M2351"
 	case ChipFamilyN76E003:
-		return "Z"
-	case ChipFamilyMS51FB9AE:
 		return "Z"
 	default:
 		return fmt.Sprintf("0x%08x", uint32(f))
