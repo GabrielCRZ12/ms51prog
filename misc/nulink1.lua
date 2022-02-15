@@ -69,7 +69,8 @@ local chip_id = {
 	-- Note: IAP commands return
 	-- Company ID Read: 0xDA
 	-- Device ID Read:  0x3650
-	[0xda3650] = "MS51FB9AE"
+	[0xda3650] = "N76E003"
+	[0xda4b21] = "MS51FB9AE"
 }
 
 local cmds = {}

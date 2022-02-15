@@ -18,4 +18,5 @@ package all
 
 import (
 	_ "github.com/GabrielCRZ12/ms51prog/target/ms51fb9ae"
+	_ "github.com/GabrielCRZ12/ms51prog/target/n76"
 )
