@@ -17,7 +17,7 @@ package cmd
 import (
 	"github.com/GabrielCRZ12/ms51prog/protocol"
 	"github.com/spf13/cobra"
-	"log"
+	"fmt"
 )
 
 // programCmd represents the program command
@@ -76,10 +76,8 @@ var programCmd = &cobra.Command{
 				return err
 			}
 		}
-		//return errors.New("Flash success")
-		log.Printf(("Flash success")
-		return nil
-	
+		//return nil
+		return fmt.Printf("FLASH SUCESS")
 	},
 }
 
