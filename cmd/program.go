@@ -76,7 +76,7 @@ var programCmd = &cobra.Command{
 				return err
 			}
 		}
-		return nil, nil, errors.New("Flash success")
+		return errors.New("Flash success")
 		//return nil
 	
 	},
