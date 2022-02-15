@@ -17,7 +17,6 @@ import (
 	"encoding"
 	"fmt"
 	"strings"
-
 	"github.com/GabrielCRZ12/ms51prog/protocol"
 )
 

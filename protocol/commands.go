@@ -138,7 +138,7 @@ func (f ChipFamily) String() string {
 	case ChipFamilyM2351:
 		return "M2351"
 	case ChipFamilyN76E003:
-		return "N76E003"
+		return "MS51FB9AE"
 	default:
 		return fmt.Sprintf("0x%08x", uint32(f))
 	}
