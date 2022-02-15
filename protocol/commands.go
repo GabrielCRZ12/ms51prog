@@ -302,7 +302,7 @@ const (
 func (id DeviceID) String() string {
 	switch id {
 	case DeviceN76E003:
-		return "N76E003"
+		return "MS51FB9AE"
 	default:
 		return fmt.Sprintf("0x%08x", uint32(id))
 	}
