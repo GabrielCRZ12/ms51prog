@@ -15,7 +15,7 @@
 package cmd
 
 import (
-	"msg"
+	"mensage"
 	"github.com/GabrielCRZ12/ms51prog/protocol"
 	"github.com/spf13/cobra"
 )
@@ -76,7 +76,7 @@ var programCmd = &cobra.Command{
 				return err
 			}
 		}
-		return nil, nil, msg.New("Flash success")
+		return nil, nil, mensage.New("Flash success")
 		//return nil
 	},
 }
