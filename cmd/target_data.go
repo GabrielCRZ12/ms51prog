@@ -25,8 +25,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/erincandescent/nuvoprog/ihex"
-	"github.com/erincandescent/nuvoprog/target"
+	"github.com/GabrielCRZ12/ms51prog/ihex"
+	"github.com/GabrielCRZ12/ms51prog/target"
 )
 
 type TargetData struct {

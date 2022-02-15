@@ -17,7 +17,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/erincandescent/nuvoprog/protocol"
+	"github.com/GabrielCRZ12/ms51prog/protocol"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )

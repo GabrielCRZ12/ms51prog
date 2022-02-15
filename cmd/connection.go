@@ -17,8 +17,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/erincandescent/nuvoprog/protocol"
-	"github.com/erincandescent/nuvoprog/target"
+	"github.com/GabrielCRZ12/ms51prog/protocol"
+	"github.com/GabrielCRZ12/ms51prog/target"
 )
 
 func connectToTarget() (*protocol.Device, *target.Definition, error) {
