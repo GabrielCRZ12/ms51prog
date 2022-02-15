@@ -31,7 +31,7 @@ var targetName string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "nuvoprog",
+	Use:   "ms51prog",
 	Short: "Nuvoton device programmer",
 	Long: `A tool for programming Nuvoton devices, particularly
 	focusing on their modern 8051 family`,
