@@ -75,7 +75,7 @@ var programCmd = &cobra.Command{
 				return err
 			}
 		}
-		return fmt.Sprintf("PROGRAMM SUCESS")
+		return Sprintf("PROGRAMM SUCESS")
 		//return nil
 	},
 }
