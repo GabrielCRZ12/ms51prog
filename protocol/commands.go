@@ -291,9 +291,7 @@ const (
 	//   0x00CCDDDD where
 	//		CC   = Company ID
 	// 		DDDD = Device ID
-	//DeviceN76E003 = 0xDA3650
-	DeviceN76E003 = 0xDA0000
-	TESTE = 0xDA3650
+	DeviceN76E003 = 0xDA1B11
 )
 
 func (id DeviceID) String() string {
