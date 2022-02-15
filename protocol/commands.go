@@ -291,13 +291,13 @@ const (
 	//   0x00CCDDDD where
 	//		CC   = Company ID
 	// 		DDDD = Device ID
-	DeviceN76E003 = 0xDA3650
+	DeviceN76E003 = 0xFF3650
 )
 
 func (id DeviceID) String() string {
 	switch id {
 	case DeviceN76E003:
-		return "N76E003"
+		return "MS51FB9AE"
 	default:
 		return fmt.Sprintf("0x%08x", uint32(id))
 	}
