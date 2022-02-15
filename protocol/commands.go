@@ -291,7 +291,7 @@ const (
 	//   0x00CCDDDD where
 	//		CC   = Company ID
 	// 		DDDD = Device ID
-	DeviceN76E003 = 0xDA3850
+	DeviceN76E003 = 0xDA3650
 	DeviceMS51FB9AE = 0xDA4B21
 )
 
