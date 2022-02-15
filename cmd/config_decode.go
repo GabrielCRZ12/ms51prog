@@ -34,9 +34,9 @@ var configDecodeCmd = &cobra.Command{
 		}
 
 		td := target.ByName(targetName)
-		/*if td == nil {
+		if td == nil {
 			return fmt.Errorf("Target device '%s' not found", targetName)
-		}*/
+		}
 
 		config, _ := cmd.Flags().GetString("config")
 		image, _ := cmd.Flags().GetString("image")
