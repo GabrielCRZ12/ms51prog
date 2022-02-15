@@ -77,7 +77,7 @@ var programCmd = &cobra.Command{
 			}
 		}
 		
-		fmt.Printf("FLASH SUCESS\n")
+		fmt.Printf("FLASH SUCESS\r\n")
 		return nil
 	},
 }
