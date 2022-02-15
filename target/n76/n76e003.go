@@ -220,7 +220,7 @@ func (c *N76E003Config) GetLDROMSize() uint {
 }
 
 var N76E003 = &target.Definition{
-	Name:        "N76E003",
+	Name:        "MS51FB9AE",
 	Family:      protocol.ChipFamilyN76E003,
 	DeviceID:    protocol.DeviceN76E003,
 	ProgMemSize: 12 * 1024,
