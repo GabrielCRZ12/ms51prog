@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/erincandescent/nuvoprog/protocol"
+	"github.com/GabrielCRZ12/ms51prog/protocol"
 )
 
 type Config interface {
