@@ -22,17 +22,17 @@ import (
 
 //go:generate enumer -type=BootSelect -trimprefix=BootFrom -transform=snake -json -text
 
-type MS51FB9AELDROMSize byte
+type N76E003LDROMSize byte
 
 const (
-	MS51FB9AELDROM0KB MS51FB9AELDROMSize = iota
-	MS51FB9AELDROM1KB
-	MS51FB9AELDROM2KB
-	MS51FB9AELDROM3KB
-	MS51FB9AELDROM4KB
+	N76E003LDROM0KB N76E003LDROMSize = iota
+	N76E003LDROM1KB
+	N76E003LDROM2KB
+	N76E003LDROM3KB
+	N76E003LDROM4KB
 )
 
-type MS51FB9AEConfig struct {
+type N76E003Config struct {
 	// CONFIG0.CBS[7]
 	BootSelect BootSelect `json:"boot_select"`
 	// CONFIG0.OCDPWM[5]
@@ -46,7 +46,7 @@ type MS51FB9AEConfig struct {
 	Locked bool `json:"locked"`
 
 	// CONFIG1.LDSIZE[2:0]
-	LDROMSize MS51FB9AELDROMSize `json:"ldrom_size"`
+	LDROMSize N76E003LDROMSize `json:"ldrom_size"`
 
 	// CONFIG2.CBODEN[7]
 	BODDisabled bool `json:"bod_disabled"`
@@ -64,7 +64,7 @@ type MS51FB9AEConfig struct {
 	WDT WDTMode `json:"wdt"`
 }
 
-func (cfg *MS51FB9AEConfig) UnmarshalBinary(buf []byte) error {
+func (cfg *N76E003Config) UnmarshalBinary(buf []byte) error {
 	if len(buf) < 4 {
 		return errors.New("Too short for config bytes")
 	}
@@ -81,15 +81,15 @@ func (cfg *MS51FB9AEConfig) UnmarshalBinary(buf []byte) error {
 
 	switch buf[1] & 0x7 {
 	case 7:
-		cfg.LDROMSize = MS51FB9AELDROM0KB
+		cfg.LDROMSize = N76E003LDROM0KB
 	case 6:
-		cfg.LDROMSize = MS51FB9AELDROM1KB
+		cfg.LDROMSize = N76E003LDROM1KB
 	case 5:
-		cfg.LDROMSize = MS51FB9AELDROM2KB
+		cfg.LDROMSize = N76E003LDROM2KB
 	case 4:
-		cfg.LDROMSize = MS51FB9AELDROM3KB
+		cfg.LDROMSize = N76E003LDROM3KB
 	default:
-		cfg.LDROMSize = MS51FB9AELDROM4KB
+		cfg.LDROMSize = N76E003LDROM4KB
 	}
 
 	cfg.BODDisabled = buf[2]&0x80 == 0
@@ -118,7 +118,7 @@ func (cfg *MS51FB9AEConfig) UnmarshalBinary(buf []byte) error {
 	return nil
 }
 
-func (cfg *MS51FB9AEConfig) MarshalBinary() ([]byte, error) {
+func (cfg *N76E003Config) MarshalBinary() ([]byte, error) {
 	buf := make([]byte, 8)
 	for i := range buf {
 		buf[i] = 0xFF
@@ -145,15 +145,15 @@ func (cfg *MS51FB9AEConfig) MarshalBinary() ([]byte, error) {
 	}
 
 	switch cfg.LDROMSize {
-	case MS51FB9AELDROM0KB:
+	case N76E003LDROM0KB:
 		buf[1] = 0xFF
-	case MS51FB9AELDROM1KB:
+	case N76E003LDROM1KB:
 		buf[1] = 0xFE
-	case MS51FB9AELDROM2KB:
+	case N76E003LDROM2KB:
 		buf[1] = 0xFD
-	case MS51FB9AELDROM3KB:
+	case N76E003LDROM3KB:
 		buf[1] = 0xFC
-	case MS51FB9AELDROM4KB:
+	case N76E003LDROM4KB:
 		buf[1] = 0xFB
 	}
 
@@ -190,7 +190,7 @@ func (cfg *MS51FB9AEConfig) MarshalBinary() ([]byte, error) {
 	}
 
 	// Sense checking: We should unmarshal to the same values
-	var newCfg MS51FB9AEConfig
+	var newCfg N76E003Config
 	if err := newCfg.UnmarshalBinary(buf); err != nil {
 		return nil, err
 	}
@@ -202,27 +202,27 @@ func (cfg *MS51FB9AEConfig) MarshalBinary() ([]byte, error) {
 	return buf, nil
 }
 
-func (c *MS51FB9AEConfig) GetLDROMSize() uint {
+func (c *N76E003Config) GetLDROMSize() uint {
 	switch c.LDROMSize {
-	case MS51FB9AELDROM0KB:
+	case N76E003LDROM0KB:
 		return 0
-	case MS51FB9AELDROM1KB:
+	case N76E003LDROM1KB:
 		return 1024
-	case MS51FB9AELDROM2KB:
+	case N76E003LDROM2KB:
 		return 2048
-	case MS51FB9AELDROM3KB:
+	case N76E003LDROM3KB:
 		return 3072
-	case MS51FB9AELDROM4KB:
+	case N76E003LDROM4KB:
 		return 4096
 	default:
 		panic("Invalid size")
 	}
 }
 
-var MS51FB9AE = &target.Definition{
-	Name:        "MS51FB9AE",
+var N76E003 = &target.Definition{
+	Name:        "N76E003",
 	Family:      protocol.ChipFamily8051,
-	DeviceID:    protocol.DeviceMS51FB9AE,
+	DeviceID:    protocol.DeviceN76E003,
 	ProgMemSize: 12 * 1024,
 	LDROMOffset: 0x3800,
 	Config: target.ConfigSpace{
@@ -230,10 +230,10 @@ var MS51FB9AE = &target.Definition{
 		MinSize:    4,
 		ReadSize:   8,
 		WriteSize:  32,
-		NewConfig:  func() target.Config { return new(MS51FB9AEConfig) },
+		NewConfig:  func() target.Config { return new(N76E003Config) },
 	},
 }
 
 func init() {
-	target.Register(MS51FB9AE)
+	target.Register(N76E003)
 }
