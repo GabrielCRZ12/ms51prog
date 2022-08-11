@@ -17,8 +17,9 @@ import (
 	"encoding/hex"
 	"errors"
 	"log"
-
-	"github.com/karalabe/hid"
+	"github.com/HebertGB/goland-hid"
+	//"github.com/karalabe/hid"
+	
 )
 
 var (
