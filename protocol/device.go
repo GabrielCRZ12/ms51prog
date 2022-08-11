@@ -17,7 +17,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"log"
-	"github.com/HebertGB/goland-hid"
+	"github.com/HebertGB/golang-hid"
 	//"github.com/karalabe/hid"
 	
 )
