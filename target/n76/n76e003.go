@@ -223,7 +223,7 @@ var N76E003 = &target.Definition{
 	Name:        "N76E003",
 	Family:      protocol.ChipFamily8051,
 	DeviceID:    protocol.DeviceN76E003,
-	ProgMemSize: 12 * 1024,
+	ProgMemSize: 16 * 1024,
 	LDROMOffset: 0x3800,
 	Config: target.ConfigSpace{
 		IHexOffset: 0x30000,
