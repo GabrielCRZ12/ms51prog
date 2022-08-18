@@ -223,7 +223,7 @@ var MS51FB9AE = &target.Definition{
 	Name:        "MS51FB9AE",
 	Family:      protocol.ChipFamily8051,
 	DeviceID:    protocol.DeviceMS51FB9AE,
-	ProgMemSize: 12 * 1024,
+	ProgMemSize: 16 * 1024,
 	LDROMOffset: 0x3800,
 	Config: target.ConfigSpace{
 		IHexOffset: 0x30000,
