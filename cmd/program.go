@@ -26,6 +26,8 @@ var programCmd = &cobra.Command{
 	Short: "Program a target device",
 	Long:  `Program a target device`,
 	RunE: func(cmd *cobra.Command, args []string) error {
+		fmt.Printf("connecting to target\r\n")
+
 		dev, td, err := connectToTarget()
 		if err != nil {
 			return err
@@ -36,15 +38,19 @@ var programCmd = &cobra.Command{
 		image, _ := cmd.Flags().GetString("image")
 		aprom, _ := cmd.Flags().GetString("aprom")
 		ldrom, _ := cmd.Flags().GetString("ldrom")
+
+		fmt.Printf("reading target\r\n")
 		data, err := ReadTargetData(config, image, aprom, ldrom, td, true)
 		if err != nil {
 			return err
 		}
 
+		fmt.Printf("erase chip\r\n")
 		if err := dev.EraseFlashChip(); err != nil {
 			return err
 		}
 
+		fmt.Printf("writing config\r\n")
 		if len(data.Config) != 0 {
 			for len(data.Config) < int(td.Config.WriteSize) {
 				data.Config = append(data.Config, 0xFF)
@@ -64,20 +70,24 @@ var programCmd = &cobra.Command{
 			return err
 		}
 
+		fmt.Printf("writing APROM\r\n")
 		for i := 0; i < len(apromB); i += 32 {
 			if err := dev.WriteMemory(protocol.ProgramSpace, uint16(i), apromB[i:i+32]); err != nil {
 				return err
 			}
+			fmt.Printf(".")
 		}
 
+		fmt.Printf("\r\nwriting LDROM (fix len 1kB)\r\n")
 		for i := 0; i < len(ldromB); i += 32 {
 			offs := uint16(td.LDROMOffset) + uint16(i)
 			if err := dev.WriteMemory(protocol.ProgramSpace, offs, ldromB[i:i+32]); err != nil {
 				return err
 			}
+			fmt.Printf(".")
 		}
 		
-		fmt.Printf("\r\n		Flash Success!!!		\r\n")
+		fmt.Printf("\r\n\r\n		Flash Success!!!		\r\n")
 		return nil
 	},
 }

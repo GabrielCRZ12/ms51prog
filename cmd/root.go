@@ -33,7 +33,7 @@ var targetName string
 var rootCmd = &cobra.Command{
 	Use:   "ms51prog",
 	Short: "Nuvoton device programmer",
-	Long: `ms51prog v1_0_1`,
+	Long: `ms51prog v1_0_2`,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		if !verbose {
 			log.SetOutput(ioutil.Discard)
